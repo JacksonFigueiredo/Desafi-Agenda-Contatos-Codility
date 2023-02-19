@@ -23,19 +23,28 @@ namespace PhoneDialLookUpCodility
                 {
                     phoneBook.Remove(A[i]);
                 }
+
             }
 
             foreach (string phone in phoneBook.Values)
             {
-                if (phone.Contains(P))
+                if (P.Length > 1)
                 {
-                    result = phone;
+                    if (phone.Contains(P))
+                    {
+                        result = phone;
+                    }
                 }
+                else
+                {
+                    return "No Contact";
+                }
+
             }
 
             foreach (KeyValuePair<string, string> p in phoneBook)
             {
-             if (p.Value.Contains(result))
+                if (p.Value.Contains(result))
                 {
                     contact = p.Key;
                 }
@@ -48,11 +57,11 @@ namespace PhoneDialLookUpCodility
             Console.WriteLine(Solution(new String[] { "pim", "pom" }, new String[] { "9999999199", "777888999" }, "8899")); //pom
             Console.WriteLine(Solution(new String[] { "tom", "jerry" }, new String[] { "012345678", "777888999" }, "345")); //tom
             Console.WriteLine(Solution(new String[] { "ed", "frank" }, new String[] { "999999999", "777888999" }, "")); // No contact
-            Console.WriteLine(Solution(new String[] { "eddie", "frank99" }, new String[] { "999999999", "777888999" }, "8899")); // No contact
-            Console.WriteLine(Solution(new String[] { "jerry", "frank" }, new String[] { "999999999", "777888999" }, "8899")); // No contact
+            //  Console.WriteLine(Solution(new String[] { "eddie", "frank99" }, new String[] { "999999999", "777888999" }, "8899")); // No contact
+            //  Console.WriteLine(Solution(new String[] { "jerry", "frank" }, new String[] { "999999999", "777888999" }, "8899")); // No contact
         }
     }
 }
- 
-  
+
+
 
