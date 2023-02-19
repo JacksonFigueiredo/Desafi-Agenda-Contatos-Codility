@@ -44,10 +44,18 @@ namespace PhoneDialLookUpCodility
 
             foreach (KeyValuePair<string, string> p in phoneBook)
             {
-                if (p.Value.Contains(result))
+                if ( result.Length > 1)
                 {
-                    contact = p.Key;
+                    if (p.Value.Contains(result))
+                    {
+                        contact = p.Key;
+                    }
                 }
+                else
+                {
+                    return "No Contact";
+                }
+              
             }
             return contact;
 
@@ -57,8 +65,8 @@ namespace PhoneDialLookUpCodility
             Console.WriteLine(Solution(new String[] { "pim", "pom" }, new String[] { "9999999199", "777888999" }, "8899")); //pom
             Console.WriteLine(Solution(new String[] { "tom", "jerry" }, new String[] { "012345678", "777888999" }, "345")); //tom
             Console.WriteLine(Solution(new String[] { "ed", "frank" }, new String[] { "999999999", "777888999" }, "")); // No contact
-            //  Console.WriteLine(Solution(new String[] { "eddie", "frank99" }, new String[] { "999999999", "777888999" }, "8899")); // No contact
-            //  Console.WriteLine(Solution(new String[] { "jerry", "frank" }, new String[] { "999999999", "777888999" }, "8899")); // No contact
+            Console.WriteLine(Solution(new String[] { "eddie", "frank99" }, new String[] { "999999999", "777888999" }, "18899")); // No contact
+            Console.WriteLine(Solution(new String[] { "jerry", "frank" }, new String[] { "999999999", "777888999" }, "28899")); // No contact
         }
     }
 }
